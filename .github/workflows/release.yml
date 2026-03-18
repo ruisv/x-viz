@@ -74,6 +74,18 @@ jobs:
         working-directory: ui
         run: npm ci
 
+      - name: Extract tag annotation
+        id: release_notes
+        shell: bash
+        run: |
+          NOTES=$(git tag -l --format='%(contents)' "${{ github.ref_name }}" 2>/dev/null || echo "")
+          if [ -z "$NOTES" ]; then
+            NOTES="x-viz ${{ github.ref_name }}"
+          fi
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          printf '%s\n' "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0.5
         env:
@@ -85,19 +97,7 @@ jobs:
           tauriScript: ui/node_modules/.bin/tauri
           tagName: ${{ github.ref_name }}
           releaseName: 'x-viz ${{ github.ref_name }}'
-          releaseBody: |
-            ## x-viz ${{ github.ref_name }}
-
-            Bing 每日壁纸桌面应用
-
-            ### 下载说明
-            | 平台 | 文件 |
-            |------|------|
-            | macOS (Apple Silicon) | `x-viz_*_aarch64.dmg` |
-            | macOS (Intel) | `x-viz_*_x64.dmg` |
-            | Windows | `.msi` 或 `.exe` 安装包 |
-            | Linux (Debian/Ubuntu) | `.deb` 包 |
-            | Linux | `.AppImage` |
+          releaseBody: ${{ steps.release_notes.outputs.body }}
           releaseDraft: false
           prerelease: false
           args: --target ${{ matrix.platform.rust_target }}
