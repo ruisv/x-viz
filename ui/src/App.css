@@ -1,0 +1,125 @@
+/* ========================================
+   App Layout
+   ======================================== */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-app);
+}
+
+/* --- Title bar / Header --- */
+.app-header {
+  display: flex;
+  align-items: center;
+  height: var(--titlebar-height);
+  padding: 0 var(--sp-4);
+  padding-left: var(--traffic-light-width);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  -webkit-app-region: drag;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.app-title-icon {
+  font-size: 20px;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.app-header-actions {
+  margin-left: auto;
+  -webkit-app-region: no-drag;
+}
+
+/* Windows: no custom title bar, show actions toolbar below native title bar */
+.app-header-windows {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Tab Bar --- */
+.app-nav {
+  display: flex;
+  justify-content: center;
+  padding: var(--sp-3) var(--sp-4);
+  flex-shrink: 0;
+}
+
+.tab-bar {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 5px 16px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-tertiary);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius-sm) - 2px);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  outline: none;
+}
+
+.tab:hover {
+  color: var(--text-secondary);
+}
+
+.tab.active {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* --- Content --- */
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--sp-4);
+  animation: fadeIn 300ms var(--ease);
+}
+
+/* --- Status bar --- */
+.app-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-4);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  margin-right: var(--sp-2);
+  box-shadow: 0 0 6px rgba(48, 209, 88, 0.4);
+}

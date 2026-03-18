@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+ui/dist/
+
+# Tauri / Rust
+src-tauri/target/
+src-tauri/gen/
+**/*.rs.bk
+
+# IDE
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+.vscode/launch.json
+
+# OS
+.DS_Store
+._*
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Development directories
+.dev/
+.claude/
+.vscode
+CLAUDE.md
+
+# Scripts output
+/tmp/

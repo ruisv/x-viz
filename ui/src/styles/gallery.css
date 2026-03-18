@@ -1,0 +1,135 @@
+/* ========================================
+   Gallery — Cards
+   ======================================== */
+
+.gallery {
+  animation: fadeIn 300ms var(--ease);
+}
+
+.gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.gallery-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.gallery-title h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.gallery-count {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--weight-regular);
+}
+
+/* --- Grid --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sp-3);
+}
+
+/* --- Card --- */
+.wallpaper-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  animation: scaleIn 400ms var(--ease) both;
+}
+
+.wallpaper-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Thumbnail */
+.wallpaper-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info */
+.wallpaper-info {
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.wallpaper-title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wallpaper-date {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+/* Hover overlay */
+.wallpaper-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.wallpaper-card:hover .wallpaper-overlay {
+  opacity: 1;
+}
+
+/* Stagger animation */
+.wallpaper-card:nth-child(1)  { animation-delay: 0ms; }
+.wallpaper-card:nth-child(2)  { animation-delay: 40ms; }
+.wallpaper-card:nth-child(3)  { animation-delay: 80ms; }
+.wallpaper-card:nth-child(4)  { animation-delay: 120ms; }
+.wallpaper-card:nth-child(5)  { animation-delay: 160ms; }
+.wallpaper-card:nth-child(6)  { animation-delay: 200ms; }
+
+/* --- Empty state --- */
+.gallery-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  padding: var(--sp-8) 0;
+  text-align: center;
+}
+
+.gallery-empty-icon {
+  font-size: 48px;
+  color: var(--text-tertiary);
+}
+
+.gallery-empty-text {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  max-width: 260px;
+  line-height: 1.6;
+}

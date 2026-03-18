@@ -1,0 +1,124 @@
+/* ========================================
+   Settings — macOS System Settings Style
+   ======================================== */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  max-width: 520px;
+  margin: 0 auto;
+  animation: fadeIn 300ms var(--ease);
+}
+
+/* --- Section (grouped card) --- */
+.settings-section {
+  background: var(--bg-card);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.settings-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.settings-section-icon {
+  font-size: 14px;
+}
+
+/* --- Row --- */
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--border);
+  min-height: 44px;
+}
+
+.settings-row-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-row-label {
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  color: var(--text-primary);
+}
+
+.settings-row-desc {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}
+
+.settings-row-control {
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.settings-row-control .select,
+.settings-row-control .input {
+  background: var(--bg-input);
+}
+
+.settings-row-control .input-sm {
+  width: 72px;
+  text-align: center;
+}
+
+/* --- Path picker --- */
+.path-input-group {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+}
+
+.path-input-group .input {
+  flex: 1;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  min-width: 0;
+}
+
+/* --- Auto-save indicator --- */
+.settings-save-indicator {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--success);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  pointer-events: none;
+}
+
+.settings-save-indicator.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- About footer --- */
+.settings-about {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  padding: var(--sp-2) 0;
+}
+
+.settings-about-version {
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+}

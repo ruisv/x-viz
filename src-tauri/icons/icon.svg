@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <clipPath id="m">
+      <rect width="1024" height="1024" rx="228" ry="228"/>
+    </clipPath>
+    <!-- macOS 26 liquid glass light blue -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D6EEFF"/>
+      <stop offset="100%" stop-color="#B8DCFA"/>
+    </linearGradient>
+    <!-- Green hills -->
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6EE7B7"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="border" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#m)">
+    <!-- Light blue background -->
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+
+    <!-- Sun -->
+    <circle cx="720" cy="280" r="100" fill="#FFF" opacity="0.9"/>
+    <circle cx="720" cy="280" r="140" fill="#FDE68A" opacity="0.2"/>
+
+    <!-- Clouds -->
+    <ellipse cx="280" cy="320" rx="120" ry="40" fill="#FFF" opacity="0.7"/>
+    <ellipse cx="360" cy="312" rx="90" ry="36" fill="#FFF" opacity="0.85"/>
+    <ellipse cx="600" cy="400" rx="100" ry="32" fill="#FFF" opacity="0.5"/>
+
+    <!-- Back hills (lighter) -->
+    <path d="M0 600 L180 480 L360 560 L540 440 L700 530 L860 450 L1024 520 L1024 1024 L0 1024Z"
+          fill="url(#hill2)" opacity="0.7"/>
+
+    <!-- Front hills (bold green) -->
+    <path d="M0 700 L160 580 L340 670 L520 540 L680 640 L850 550 L1024 630 L1024 1024 L0 1024Z"
+          fill="url(#hill)"/>
+
+    <!-- Flowers/dots on hillside -->
+    <circle cx="200" cy="780" r="10" fill="#FCD34D" opacity="0.8"/>
+    <circle cx="380" cy="750" r="8" fill="#FB7185" opacity="0.7"/>
+    <circle cx="540" cy="770" r="10" fill="#C084FC" opacity="0.7"/>
+    <circle cx="700" cy="740" r="9" fill="#FCD34D" opacity="0.8"/>
+    <circle cx="860" cy="760" r="8" fill="#FB7185" opacity="0.7"/>
+    <circle cx="300" cy="820" r="7" fill="#C084FC" opacity="0.6"/>
+    <circle cx="620" cy="810" r="8" fill="#FCD34D" opacity="0.7"/>
+    <circle cx="800" cy="830" r="7" fill="#FB7185" opacity="0.6"/>
+  </g>
+
+  <!-- Glass border -->
+  <rect width="1024" height="1024" rx="228" ry="228"
+        fill="none" stroke="url(#border)" stroke-width="3"/>
+</svg>
