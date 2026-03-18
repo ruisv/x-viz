@@ -74,13 +74,14 @@ jobs:
         working-directory: ui
         run: npm ci
 
-      - name: Extract tag annotation
+      - name: Extract changelog
         id: release_notes
         shell: bash
         run: |
-          NOTES=$(git tag -l --format='%(contents)' "${{ github.ref_name }}" 2>/dev/null || echo "")
+          VERSION="${{ github.ref_name }}"
+          NOTES=$(awk "/^## \[${VERSION}\]/{found=1; next} /^## \[/{if(found) exit} found{print}" CHANGELOG.md)
           if [ -z "$NOTES" ]; then
-            NOTES="x-viz ${{ github.ref_name }}"
+            NOTES="x-viz ${VERSION}"
           fi
           echo "body<<EOF" >> $GITHUB_OUTPUT
           printf '%s\n' "$NOTES" >> $GITHUB_OUTPUT
